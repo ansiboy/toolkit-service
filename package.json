@@ -1,0 +1,19 @@
+{
+    "name": "maishu-toolkit-service",
+    "version": "1.0.0",
+    "scripts": {
+        "build": "grunt"
+    },
+    "dependencies": {
+        "level": "^4.0.0",
+        "maishu-node-mvc": "^1.0.5"
+    },
+    "devDependencies": {
+        "browserify-css": "^0.14.0",
+        "grunt": "^1.0.3",
+        "grunt-browserify": "^5.3.0",
+        "grunt-contrib-copy": "^1.0.0",
+        "grunt-shell": "^2.1.0",
+        "load-grunt-tasks": "^4.0.0"
+    }
+}
