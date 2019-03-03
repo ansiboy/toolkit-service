@@ -1,4 +1,8 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-require("./modules/unique-number");
-require("./modules/small-data");
+const common_1 = require("./common");
+module.exports = function init(baseUrl) {
+    if (baseUrl)
+        common_1.setBaseUrl(baseUrl);
+    require('./modules/unique-number');
+    require('./modules/small-data');
+};

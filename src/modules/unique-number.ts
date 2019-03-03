@@ -1,7 +1,7 @@
 import { controller, action } from "maishu-node-mvc";
 import level = require("level");
 import path = require('path')
-import { constants } from "../common";
+import { constants, baseUrl } from "../common";
 
 const NUMBER_LENGTH = 6
 
@@ -85,7 +85,7 @@ class UniqueNumberGenerator {
 
 let uniqueNumberGenerator = new UniqueNumberGenerator(database, NUMBER_LENGTH)
 
-@controller("/tool")
+@controller(`${baseUrl}`)
 export class Controller {
 
     @action("unique-number")

@@ -1,12 +1,13 @@
 {
     "name": "maishu-toolkit-service",
-    "version": "1.0.0",
+    "version": "1.0.1",
+    "main": "out/index.js",
     "scripts": {
         "build": "grunt"
     },
     "dependencies": {
         "level": "^4.0.0",
-        "maishu-node-mvc": "^1.0.5"
+        "maishu-node-mvc": "^1.0.8"
     },
     "devDependencies": {
         "browserify-css": "^0.14.0",

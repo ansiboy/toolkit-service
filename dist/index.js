@@ -9423,7 +9423,20 @@ Object.defineProperty(exports, "__esModule", { value: true });
 require("./modules/unique-number");
 require("./modules/small-data");
 
-},{"./modules/small-data":61,"./modules/unique-number":62}],61:[function(require,module,exports){
+},{"./modules/small-data":62,"./modules/unique-number":63}],61:[function(require,module,exports){
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.errors = {
+    arugmentNull(name) {
+        let msg = `Argument ${name} cannt be null or empty.`;
+        return new Error(msg);
+    },
+    argumentTypeError(name, exepectedType, actualType) {
+        let msg = `Argument ${name} expected ${exepectedType} type, actual is ${actualType} type.`;
+    }
+};
+
+},{}],62:[function(require,module,exports){
 (function (__dirname){
 "use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -9445,6 +9458,7 @@ const maishu_node_mvc_1 = require("maishu-node-mvc");
 const level = require("level");
 const path = require("path");
 const common_1 = require("../common");
+const error_1 = require("./error");
 let database = level(path.join(__dirname, "../small-data-db"));
 /**
  * 简单对象服务，用于保存，获取简单，很少需要写入的对象。
@@ -9453,11 +9467,11 @@ let SimpleObject = class SimpleObject {
     put({ key, value }) {
         return __awaiter(this, void 0, void 0, function* () {
             if (!key)
-                throw errors.arugmentNull('key');
+                throw error_1.errors.arugmentNull('key');
             if (value == null)
-                throw errors.arugmentNull("value");
+                throw error_1.errors.arugmentNull("value");
             if (typeof value != 'object')
-                throw errors.argumentTypeError('value', 'object', typeof value);
+                throw error_1.errors.argumentTypeError('value', 'object', typeof value);
             let str = JSON.stringify(value);
             let r = yield database.put(key, str);
             return r;
@@ -9466,7 +9480,7 @@ let SimpleObject = class SimpleObject {
     get({ key }) {
         return __awaiter(this, void 0, void 0, function* () {
             if (!key)
-                throw errors.arugmentNull('key');
+                throw error_1.errors.arugmentNull('key');
             try {
                 let value = yield database.get(key);
                 return value;
@@ -9493,12 +9507,12 @@ __decorate([
     maishu_node_mvc_1.action()
 ], SimpleObject.prototype, "delete", null);
 SimpleObject = __decorate([
-    maishu_node_mvc_1.controller("data")
+    maishu_node_mvc_1.controller("/tool/data")
 ], SimpleObject);
 exports.default = SimpleObject;
 
 }).call(this,"/out/modules")
-},{"../common":59,"level":31,"maishu-node-mvc":"maishu-node-mvc","path":39}],62:[function(require,module,exports){
+},{"../common":59,"./error":61,"level":31,"maishu-node-mvc":"maishu-node-mvc","path":39}],63:[function(require,module,exports){
 (function (__dirname){
 "use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -9579,10 +9593,10 @@ let Controller = class Controller {
     }
 };
 __decorate([
-    maishu_node_mvc_1.action("/unique-number")
+    maishu_node_mvc_1.action("unique-number")
 ], Controller.prototype, "main", null);
 Controller = __decorate([
-    maishu_node_mvc_1.controller()
+    maishu_node_mvc_1.controller("/tool")
 ], Controller);
 exports.Controller = Controller;
 

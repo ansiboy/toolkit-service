@@ -80,6 +80,6 @@ __decorate([
     maishu_node_mvc_1.action("unique-number")
 ], Controller.prototype, "main", null);
 Controller = __decorate([
-    maishu_node_mvc_1.controller("/tool")
+    maishu_node_mvc_1.controller(`${common_1.baseUrl}`)
 ], Controller);
 exports.Controller = Controller;

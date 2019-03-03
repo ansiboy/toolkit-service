@@ -67,6 +67,6 @@ __decorate([
     maishu_node_mvc_1.action()
 ], SimpleObject.prototype, "delete", null);
 SimpleObject = __decorate([
-    maishu_node_mvc_1.controller("/tool/data")
+    maishu_node_mvc_1.controller(`${common_1.baseUrl}/data`)
 ], SimpleObject);
 exports.default = SimpleObject;
