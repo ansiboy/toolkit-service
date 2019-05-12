@@ -1,9 +1,12 @@
-import { setBaseUrl } from './common';
+import { startServer } from 'maishu-node-mvc'
 
-export = function init(baseUrl?: string) {
-    if (baseUrl)
-        setBaseUrl(baseUrl)
+interface Options {
+    port: number
+}
 
-    require('./modules/unique-number')
-    require('./modules/small-data')
+export function start(options: Options) {
+    startServer({
+        port: options.port,
+        rootPath: __dirname
+    })
 }

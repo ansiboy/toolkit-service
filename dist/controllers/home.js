@@ -7,29 +7,15 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const maishu_node_mvc_1 = require("maishu-node-mvc");
-/**
- * 简单对象服务，用于保存，获取简单类型的对象
- */
-let SimpleObject = class SimpleObject {
-    insert() {
-        return "insert";
-    }
-    update() {
-        return "update";
-    }
-    delete() {
+let HomeController = class HomeController {
+    index() {
+        return "Toolkit service started.";
     }
 };
 __decorate([
-    maishu_node_mvc_1.action()
-], SimpleObject.prototype, "insert", null);
-__decorate([
-    maishu_node_mvc_1.action()
-], SimpleObject.prototype, "update", null);
-__decorate([
-    maishu_node_mvc_1.action()
-], SimpleObject.prototype, "delete", null);
-SimpleObject = __decorate([
+    maishu_node_mvc_1.action("/")
+], HomeController.prototype, "index", null);
+HomeController = __decorate([
     maishu_node_mvc_1.controller()
-], SimpleObject);
-exports.default = SimpleObject;
+], HomeController);
+exports.HomeController = HomeController;

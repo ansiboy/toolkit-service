@@ -1,7 +1,5 @@
-import { startServer } from 'maishu-node-mvc'
-import path = require('path')
+import { start } from './index'
 
-startServer({
-    port: 1295,
-    controllerDirectories: [path.join(__dirname, 'modules')]
+start({
+    port: 1295
 })

@@ -2,9 +2,9 @@ import { controller, action } from "maishu-node-mvc";
 
 @controller()
 export class HomeController {
-    @action()
+    @action("/")
     public index() {
-        return "Hello Worl!"
+        return "Toolkit service started."
     }
 
 }
