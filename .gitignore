@@ -1,4 +1,4 @@
 node_modules
 package-lock.json
-out/small-data-db
-out/unique-number-db
+dist/small-data-db
+dist/unique-number-db

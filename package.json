@@ -9,7 +9,7 @@
     "dependencies": {
         "@types/node": "^12.0.0",
         "level": "^4.0.0",
-        "maishu-node-mvc": "^1.1.12",
+        "maishu-node-mvc": "^1.1.14",
         "mime": "^2.4.2"
     },
     "devDependencies": {
