@@ -1,4 +1,4 @@
-import { controller, action } from "maishu-node-mvc";
+import { controller, action, formData } from "maishu-node-mvc";
 import level = require("level");
 import path = require('path')
 import { constants } from "../common";
@@ -13,7 +13,7 @@ let database = level(path.join(__dirname, "../small-data-db"))
 export default class SimpleObject {
 
     @action()
-    public async put({ key, value }: { key: string, value: any }) {
+    public async put(@formData { key, value }: { key: string, value: any }) {
         if (!key) throw errors.arugmentNull('key')
         if (value == null) throw errors.arugmentNull("value")
         if (typeof value != 'object') throw errors.argumentTypeError('value', 'object', typeof value)
@@ -24,7 +24,7 @@ export default class SimpleObject {
     }
 
     @action()
-    public async get({ key }: { key: string }) {
+    public async get(@formData { key }: { key: string }) {
         if (!key) throw errors.arugmentNull('key')
         try {
             let value = await database.get(key)
@@ -39,7 +39,7 @@ export default class SimpleObject {
     }
 
     @action()
-    public delete({ key }: { key: string }) {
+    public delete(@formData { key }: { key: string }) {
         return database.del(key)
     }
 }
