@@ -3,14 +3,9 @@
         "target": "es6",
         "module": "commonjs",
         "experimentalDecorators": true,
-        "outDir": "../dist",
+        "outDir": "../out",
         "declaration": true,
         "baseUrl": "./",
-        "strict": true,
-        "paths": {
-            "maishu-node-mvc": [
-                "../node_modules/maishu-node-mvc/dist/index.d.ts"
-            ]
-        }
+        "strict": true
     }
 }
